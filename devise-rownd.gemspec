@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "faraday_middleware", "~> 1.2.0"
   spec.add_dependency "rbnacl", "~> 7.1.1"
   spec.add_dependency "jose", "~> 1.1.3"
+  # spec.add_dependency "dotenv-rails", "~> 2.7.6"
 
   spec.add_development_dependency "rails", "~> 6.1.5"
   spec.add_development_dependency "rake", "~> 13.0.6"

@@ -22,9 +22,11 @@ module Devise::Rownd
       @access_token = params[:access_token]
       @user = fetch_user
 
-      verify_user_for_app
+      configured_app_id = Devise::Rownd.app_id
+      ok = app_id == configured_app_id
+      return render json: { error: 'JWT not authorized for app' }, status: :unauthorized unless ok
 
-      should_refresh_page = !(session[:rownd_user] && session[:rownd_user]['user_id'] == @user['user_id'])
+      should_refresh_page = !(session[:rownd_user_data] && session[:rownd_user_data]['user_id'] == @user['user_id'])
 
       set_session_on_authentication
 
@@ -35,7 +37,7 @@ module Devise::Rownd
     end
 
     def sign_out
-      session[:rownd_user] = nil
+      session[:rownd_user_data] = nil
       session[:rownd_app_id] = nil
       session[:rownd_app_user_id] = nil
       session[:rownd_user_access_token] = nil
@@ -54,18 +56,19 @@ module Devise::Rownd
     private
 
     def verify_user_for_app
-      raise StandardError, 'JWT audience not valid for credentials' unless app_id == Devise::Rownd.rownd_app_id
+      configured_app_id = Devise::Rownd.app_id
+      return false unless app_id == configured_app_id
     end
 
     def set_session_on_authentication
-      session[:rownd_user] = @user
+      session[:rownd_user_data] = @user
       session[:rownd_app_id] = app_id
       session[:rownd_app_user_id] = @user['user_id']
       session[:rownd_user_access_token] = @access_token
     end
 
     def return_to_after_sign_out
-      root_path
+      '/'
     end
 
     def fetch_user

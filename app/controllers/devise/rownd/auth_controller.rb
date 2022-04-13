@@ -37,10 +37,10 @@ module Devise::Rownd
     end
 
     def sign_out
-      session[:rownd_user_data] = nil
-      session[:rownd_app_id] = nil
-      session[:rownd_app_user_id] = nil
-      session[:rownd_user_access_token] = nil
+      session.delete(:rownd_user_data)
+      session.delete(:rownd_app_id)
+      session.delete(:rownd_app_user_id)
+      session.delete(:rownd_user_access_token)
       render json: {
         message: 'Successfully signed out user',
         return_to: return_to_after_sign_out

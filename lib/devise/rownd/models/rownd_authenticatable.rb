@@ -19,15 +19,16 @@ module Devise
         end
 
         def serialize_into_session(resource)
-          result = [resource.data]
+          # result = [resource.data]
+          result = [resource]
           # result = [resource['user_id'], resource['email']]
           result
         end
 
-        def find_by_user_id_or_email(user_id, email)
-          result = find_by('user_id = ? OR email = ?', user_id, email)
-          result
-        end
+        # def find_by_user_id_or_email(user_id, email)
+        #   result = find_by('user_id = ? OR email = ?', user_id, email)
+        #   result
+        # end
       end
     end
   end

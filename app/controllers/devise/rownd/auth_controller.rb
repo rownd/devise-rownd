@@ -39,6 +39,7 @@ module Devise::Rownd
       session[:rownd_stale_data] = true
       warden.logout(:user)
       warden.authenticate!(scope: :user)
+      session[:rownd_stale_data] = false
       render json: {
         # should_refresh_page: true
       }, status: :ok

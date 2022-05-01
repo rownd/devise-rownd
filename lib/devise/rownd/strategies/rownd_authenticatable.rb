@@ -20,8 +20,8 @@ module Devise
         @access_token = session[:rownd_user_access_token]
         return fail!('No Access Token') unless @access_token
 
-        decoded_jwt = verify_token(@access_token)
-        @app_id = decoded_jwt['aud'].find(/^app:.+/).first.split(':').last
+        @decoded_jwt = verify_token(@access_token)
+        @app_id = @decoded_jwt['aud'].find(/^app:.+/).first.split(':').last
 
         configured_app_id = Devise::Rownd.app_id
         ok = @app_id == configured_app_id
@@ -39,14 +39,15 @@ module Devise
       end
 
       def fetch_user
+        cache_key = "rownd_user_#{@decoded_jwt['jti']}"
         if session[:rownd_stale_data] == true
           data = fetch_user_from_api
-          Rails.cache.write('rownd_user', data, expires_in: 1.minute)
+          Rails.cache.write(cache_key, data, expires_in: 1.minute)
           session.delete(:rownd_stale_data) if session[:rownd_stale_data]
           return data
         end
 
-        Rails.cache.fetch('rownd_user', expires_in: 1.minute) do
+        Rails.cache.fetch(cache_key, expires_in: 1.minute) do
           fetch_user_from_api
         end
       end

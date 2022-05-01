@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    devise-rownd (1.0.1)
+    devise-rownd (1.0.2)
       devise (~> 4.0)
       faraday (~> 1.0)
       faraday_middleware (~> 1.2.0)

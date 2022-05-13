@@ -20,9 +20,11 @@ module Devise::Rownd
         warden.authenticate!(scope: :user)
       end
 
+      warden.authenticate!(scope: :user) unless warden.user
+
       render json: {
         message: 'Successfully authenticated user',
-        should_refresh_page: new_access_token || session[:rownd_stale_data] == true,
+        should_refresh_page: new_access_token || session[:rownd_stale_data] == true
       }, status: :ok
     end
 

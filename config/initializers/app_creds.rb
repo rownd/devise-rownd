@@ -1,11 +1,11 @@
 module Devise
   module Rownd
     def app_id
-      app_config['id']
+      app_config['id'] if app_config
     end
 
     def app_schema
-      app_config['schema']
+      app_config['schema'] if app_config
     end
 
     def app_key

@@ -2,6 +2,7 @@ require 'devise'
 require 'devise/strategies/authenticatable'
 require 'devise/rownd/user'
 require 'devise/rownd/api'
+require 'devise/rownd/caching'
 require 'jose'
 
 require_relative '../../../../config/initializers/app_creds'
@@ -57,12 +58,7 @@ module Devise
           return data
         end
 
-        Rails.cache.fetch(cache_key, expires_in: 1.minute) do
-          fetched_user = fetch_user_from_api
-          break unless fetched_user
-
-          fetched_user
-        end
+        Devise::Rownd::Caching.fetch(cache_key, 1.minute) { fetch_user_from_api }
       end
 
       def fetch_user_from_api
@@ -92,12 +88,7 @@ module Devise
       end
 
       def jwks
-        Rails.cache.fetch('rownd_jwks', expires_in: 15.minutes) do
-          fetched_jwks = fetch_jwks_from_api
-          break unless fetched_jwks
-
-          fetched_jwks
-        end
+        Devise::Rownd::Caching.fetch('rownd_jwks', 15.minutes) { fetch_jwks_from_api }
       end
 
       def fetch_jwks_from_api

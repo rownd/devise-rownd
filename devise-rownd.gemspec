@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = ">= 2.6.5"
   spec.required_rubygems_version = ">= 3.0.3"
 
+  spec.add_dependency "async", "~> 1.30.2"
   spec.add_dependency "devise", "~> 4.0"
   spec.add_dependency "faraday", "~> 1.0"
   spec.add_dependency "faraday_middleware", "~> 1.2.0"

@@ -20,7 +20,7 @@ module Devise::Rownd
         warden.authenticate!(scope: :user)
       end
 
-      warden.authenticate!(scope: :user) unless warden.user
+      warden.authenticate!(scope: :user)
 
       render json: {
         message: 'Successfully authenticated user',

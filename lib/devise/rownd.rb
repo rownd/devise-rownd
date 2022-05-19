@@ -4,6 +4,7 @@ require 'devise/rownd/strategies'
 require 'devise/rownd/models'
 require 'devise/rownd/api'
 require 'devise/rownd/user'
+require 'devise/rownd/caching'
 
 module Devise
   module Rownd

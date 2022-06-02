@@ -33,6 +33,8 @@ module Devise
           user_data = fetch_user
           return fail!('Failed to fetch user') unless user_data
 
+          user_data['is_verified_user'] = @decoded_jwt['https://auth.rownd.io/is_verified_user']
+
           rownd_user = Devise::Rownd::User.new(user_data)
 
           return fail!('Failed to initialize user') unless rownd_user

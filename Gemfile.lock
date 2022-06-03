@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    devise-rownd (1.0.3)
+    devise-rownd (1.1.0)
       async (~> 1.30.2)
       devise (~> 4.0)
       faraday (~> 1.0)
@@ -76,7 +76,7 @@ GEM
       console (~> 1.10)
       nio4r (~> 2.3)
       timers (~> 4.1)
-    bcrypt (3.1.17)
+    bcrypt (3.1.18)
     builder (3.2.4)
     concurrent-ruby (1.1.10)
     console (1.15.3)

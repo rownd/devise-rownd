@@ -1,3 +1,9 @@
+# 1.1.0 (June 3, 2022)
+
+## Enhancements
+
+  - Add `verified?` instance method to the user model
+
 # 1.0.3 (May 13, 2022)
 
 ## Bug fixes:

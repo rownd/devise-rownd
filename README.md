@@ -32,7 +32,7 @@ mount Devise::Rownd::Engine, at: '/api/auth/rownd'
 ### Rownd Hub
 Follow [these instructions](https://docs.rownd.io/rownd/sdk-reference/web/javascript-browser) to install the Rownd Hub. You'll want to ensure it runs on every page of your application, so be sure to add it as a common in your Rails JS packs. Here's the easiest way to do that:
 
-1. Create a new file in your JS packs director called `rph.js` and paste the JS snippet that you obtained from the instructions listed above.
+1. Create a new file in your JS packs directory called `rph.js` and paste the JS snippet that you obtained from the instructions listed above.
 
 3. Add the following API callbacks to your Javascript:
 ```javascript
@@ -62,7 +62,7 @@ _rphConfig.push(['setPostUserDataUpdateApi', {
   <%= javascript_pack_tag 'rph', 'data-turbolinks-track': 'reload' %>
 </body>
 ```
-There are two key pieces that you musut include in the layout:
+There are two key pieces that you must include in the layout:
 
 `<%= show_rownd_signin_if_required %>`
 This renders the Rownd sign in modal to prompt the user for authentication when your app explicitly requires it in a controller
@@ -130,9 +130,9 @@ The `current_user` object has all of the fields specified in your Rownd applicat
 
 ### Extending the `current_user` model
 
-You can extend the `current_user` object by modifying the `Devise::Rownd::User` class. This can be very helpful if you want to have additionanl functions that aggregate data accross multiple fields, or perform some logic and return the result.
+You can extend the `current_user` object by modifying the `Devise::Rownd::User` class. This can be very helpful if you want to have additional functions that aggregate data accross multiple fields, or perform some logic and return the result.
 
-For instance, you might want a function called `admin?` that will return if the current user is has an `admin` role. To extend the `current_user` object, add a new initializer in `config/initializers` called `devise_rownd.rb`. In there you can modify the `Devise::Rownd::User` like this:
+For instance, you might want a function called `admin?` that will return if the current user has an `'admin'` role. To extend the `current_user` object, add a new initializer in `config/initializers` called `devise_rownd.rb`. In there you can modify the `Devise::Rownd::User` like this:
 
 ```ruby
 Devise::Rownd::User.class_eval do

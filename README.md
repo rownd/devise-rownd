@@ -2,7 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/devise-rownd.svg)](https://badge.fury.io/rb/devise-jwt)
 
-`devise-rownd` is a [devise](https://github.com/heartcombo/devise) extension that auuthenticates users with Rownd's passwordless authentication strategies. It works in-tandem with the Rownd Hub, a javascript snippet embedded in your website. With this Gem installed, Rownd handles all aspects of user authentication and gives you the tools to customize the user experience on your site.
+`devise-rownd` is a [devise](https://github.com/heartcombo/devise) extension that authenticates users with Rownd's passwordless authentication strategies. It works in-tandem with the Rownd Hub, a javascript snippet embedded in your website. With this Gem installed, Rownd handles all aspects of user authentication and gives you the tools to customize the user experience on your site.
 
 ## Installation
 Add this line to your application's Gemfile:

@@ -6,6 +6,7 @@ gemspec
 
 group :development do
   gem 'sqlite3'
+  gem 'solargraph'
 end
 
 # To use a debugger

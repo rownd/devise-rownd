@@ -74,7 +74,6 @@ Tells Rails to include the rph Javascript pack. We also tell Turbolinks to inclu
 
 For this to work, you need to define these key environment variables:
 
-* `ROWND_APP_ID` - This is the ID of your Rownd application
 * `ROWND_APP_KEY` - Your Rownd application key
 * `ROWND_APP_SECRET` - Your Rownd application secret
 

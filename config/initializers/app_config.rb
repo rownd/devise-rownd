@@ -1,5 +1,6 @@
 require 'devise/rownd/api'
 require 'devise/rownd/caching'
+require 'devise/rownd/log'
 
 module Devise
   module Rownd
@@ -18,7 +19,7 @@ module Devise
                                                         headers: { 'x-rownd-app-key' => app_key } })
       return response.body['app'] if response.success?
 
-      Rails.logger.error("Failed to fetch app config from Rownd: #{response.body['message']}")
+      Devise::Rownd::Log.error("Failed to fetch app config from Rownd: #{response.body['message']}")
       nil
     end
 

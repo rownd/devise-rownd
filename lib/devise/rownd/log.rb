@@ -6,14 +6,12 @@ module Devise::Rownd
       return unless @logger
 
       @logger.tagged('Rownd') { @logger.debug(message) }
-      @logger.debug(message)
     end
 
     def self.error(message)
       return unless @logger
 
       @logger.tagged('Rownd') { @logger.error(message) }
-      @logger.debug(message)
     end
   end
 end

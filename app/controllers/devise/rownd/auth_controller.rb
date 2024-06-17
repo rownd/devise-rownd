@@ -47,10 +47,12 @@ module Devise::Rownd
 
     def update_data
       Devise::Rownd::Log.debug('handling /update_data')
-      # warden.authenticate!(scope: :user)
 
       request_body = JSON.parse request.body.read
-      new_user = Devise::Rownd::User.new(request_body['user_data'], session['warden.user.user.key'])
+      profile = {
+        'data' => request_body['user_data']
+      }
+      new_user = Devise::Rownd::User.new(profile, session['warden.user.user.key'])
 
       Devise::Rownd::Log.debug("/update_data: instantiated user: #{new_user}")
 

@@ -42,13 +42,13 @@ module Devise
             return fail!('JWT not authorized for app')
           end
 
-          user_data = Devise::Rownd::User.fetch_user(access_token)
-          unless user_data
+          profile = Devise::Rownd::User.fetch_user(access_token)
+          unless profile
             Devise::Rownd::Log.error('authenticate! failed: Failed to fetch user')
             fail!('Failed to fetch user')
           end
 
-          rownd_user = Devise::Rownd::User.new(user_data, access_token)
+          rownd_user = Devise::Rownd::User.new(profile, access_token)
 
           unless rownd_user
             Devise::Rownd::Log.error('authenticate! failed: failed to initialize user')

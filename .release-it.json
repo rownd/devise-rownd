@@ -22,8 +22,10 @@
     }
   },
   "hooks": {
-    "after:github:release": [
-      "bundle exec rake release"
+    "after:bump": [
+      "gem build \"devise-rownd\"",
+      "gem push devise-rownd-${version}.gem",
+      "rm -f devise-rownd-${version}.gem"
     ]
   }
 }

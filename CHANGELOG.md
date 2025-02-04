@@ -1,5 +1,12 @@
 
 
+## [2.0.2](https://github.com/rownd/devise-rownd/compare/2.0.0...2.0.2) (2025-02-04)
+
+
+### Bug Fixes
+
+* **controller:** adds missing variable ([#6](https://github.com/rownd/devise-rownd/issues/6)) ([7838a15](https://github.com/rownd/devise-rownd/commit/7838a1585a1089b812be15d7e4c822d851a75ac1))
+
 # [2.0.0](https://github.com/rownd/devise-rownd/compare/v1.1.0...2.0.0) (2024-06-17)
 
 

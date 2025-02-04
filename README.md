@@ -8,7 +8,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'devise-rownd', '~> 2.0.0'
+gem 'devise-rownd', '~> 2.0.1'
 ```
 
 And then execute:

@@ -31,7 +31,7 @@ module Devise::Rownd
 
       render json: {
         message: 'Successfully authenticated user',
-        should_refresh_page:
+        should_refresh_page: should_refresh_page
       }, status: :ok
     end
 
